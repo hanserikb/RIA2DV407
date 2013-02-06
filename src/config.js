@@ -11,8 +11,10 @@ require.config({
     'jquery': '../lib/jquery/jquery',
     'underscore': '../lib/underscore-amd/underscore',
     'backbone': '../lib/backbone-amd/backbone',
+    'backbone-relational': '../lib/backbone-relational/backbone-relational',
+    'backbone.localStorage': '../lib/backbone.localStorage/backbone.localStorage',
     'jasmine': '../lib/jasmine/jasmine/lib/jasmine-core/jasmine',
-    'jasmine-jquery': '../lib/jasmine-jquery/lib/jasmine-jquery',
+    'jasmine-jquery': '../lib/jasmine-jquery/lib/jasmine-jquery'
   },
   shim: {
     jasmine: {

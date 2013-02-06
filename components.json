@@ -1,6 +1,6 @@
 {
-  "name": "Mitt testprojekt",
-  "version": "1.0",
+  "name": "RIA-Projekt 2013",
+  "version": "0.1",
   "dependencies": {
     "jquery": null,
     "backbone-amd": null,
@@ -8,6 +8,7 @@
     "requirejs": null,
     "requirejs-text": null,
     "backbone.localStorage": null,
+    "backbone-relational": null,
     "jasmine": null,
     "jasmine-jquery": null
   }
