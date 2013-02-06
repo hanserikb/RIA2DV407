@@ -1,0 +1,14 @@
+{
+  "name": "Mitt testprojekt",
+  "version": "1.0",
+  "dependencies": {
+    "jquery": null,
+    "backbone-amd": null,
+    "underscore-amd": null,
+    "requirejs": null,
+    "requirejs-text": null,
+    "backbone.localStorage": null,
+    "jasmine": null,
+    "jasmine-jquery": null
+  }
+}
