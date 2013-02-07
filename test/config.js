@@ -1,7 +1,7 @@
 
 // Konfiguration till Require.js för testning
 // Inspiration hämtad från http://kilon.org/blog/2012/08/testing-backbone-requirejs-applications-with-jasmine/
-require.config({  
+require.config({
 
   // Lägger till en querystring så cache-problem löses
   urlArgs: 'cb=' + Math.random(),
