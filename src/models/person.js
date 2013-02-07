@@ -1,7 +1,7 @@
 // Model for a single person
-define(['backbone'], function(Backbone) {
+define(['backbone', 'backbone-relational'], function(Backbone) {
 
-  var Person = Backbone.Model.extend({
+  var Person = Backbone.RelationalModel.extend({
     // Default values
     defaults: {
       firstName: 'Förnamn',
@@ -12,7 +12,7 @@ define(['backbone'], function(Backbone) {
       // Name cant be blank
       if (!attrs.firstName || !attrs.lastName) {
         return 'Du måste ange förnamn och efternamn';
-      };
+      }
     },
 
     // Constructor
@@ -20,7 +20,7 @@ define(['backbone'], function(Backbone) {
       console.log('Person Model Initialized');
       this.on('change:done', function() {
         console.log(this + "changed");
-      })
+      });
     },
 
     // Return concatinated string with first and last name
@@ -30,4 +30,4 @@ define(['backbone'], function(Backbone) {
     
   });
   return Person;
-})
+});

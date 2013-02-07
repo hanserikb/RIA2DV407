@@ -3,13 +3,16 @@
   "version": "0.1",
   "dependencies": {
     "jquery": null,
-    "backbone-amd": null,
+    "backbone": null,
     "underscore-amd": null,
     "requirejs": null,
     "requirejs-text": null,
     "backbone.localStorage": null,
     "backbone-relational": null,
     "jasmine": null,
-    "jasmine-jquery": null
+    "jasmine-jquery": null,
+    "bootstrap": null,
+    "bootstrap-modal-jakobmattsson": null,
+    "less.js": null
   }
 }
