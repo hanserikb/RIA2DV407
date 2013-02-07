@@ -1,10 +1,4 @@
 require.config({
-  
-  // Anger startpunkten för applikationen. 
-  // Utgår ifrån baseUrl-direktivet. Eftersom vi inte har överlagrat detta är
-  // baseUrl för tillfället data-main-attributet på script-taggen
-  //deps: ['main'], 
-  
   // Anger sökvägen till våra bibliotek. Utgår ifrån denna fil.
   paths: {
     'text': '../lib/requirejs-text/text',
@@ -13,8 +7,9 @@ require.config({
     'backbone': '../lib/backbone/backbone',
     'backbone-relational': '../lib/backbone-relational/backbone-relational',
     'backbone.localStorage': '../lib/backbone.localStorage/backbone.localStorage',
-    'jasmine': '../lib/jasmine/jasmine/lib/jasmine-core/jasmine',
-    'jasmine-jquery': '../lib/jasmine-jquery/lib/jasmine-jquery'
+    'jasmine': '../lib/jasmine/lib/jasmine-core/jasmine',
+    'jasmine-jquery': '../lib/jasmine-jquery/lib/jasmine-jquery',
+    'jasmine-html': '../lib/jasmine/lib/jasmine-core/jasmine-html'
   },
   shim: {
     jasmine: {
