@@ -1,5 +1,5 @@
 // Laddar in nödvändiga bilbiotek för att köra igång test
-define(['jquery', 'jasmine-html', '../test/spec/models/PersonSpec', '../test/spec/models/DishSpec'], function($, jasmine) {
+define(['jquery', 'jasmine-html', '../test/spec/models/DishSpec'], function($, jasmine) {
   var jasmineEnv = jasmine.getEnv();
   jasmineEnv.updateInterval = 1000;
 
