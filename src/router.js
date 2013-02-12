@@ -1,4 +1,4 @@
-define(['backbone', 'models/person'], function(Backbone, Person) {
+define(['backbone'], function(Backbone, Person) {
   var Router = Backbone.Router.extend({
     
     routes: {
@@ -7,8 +7,7 @@ define(['backbone', 'models/person'], function(Backbone, Person) {
 
     // Index page
     index: function() {
-      var person = new Person();
-      console.log(person);
+      
     }
 
   });

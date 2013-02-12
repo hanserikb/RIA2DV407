@@ -35,7 +35,7 @@ require.config({
 });
 
 // Run test suite or start app, depending on where we were included
-if(window.TEST) {
+if (window.TEST) {
   require(['../test/config']);
 } else {
   require(
@@ -43,7 +43,6 @@ if(window.TEST) {
 
     new Router();
     Backbone.history.start();
-
 
     new AppView();
   });
