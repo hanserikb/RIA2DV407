@@ -1,13 +1,15 @@
 define(['backbone'], function(Backbone) {
-   
-    var Dish = Backbone.Model.extend({
+
+    // Dish model
+    return Backbone.Model.extend({
       defaults: {
         name: '',
-        description: 'No description.'
+        description: 'No description',
+        cookingTime: 'N/A'
       },
       validate: function(attrs) {
 
-        // Array to hold possible errors
+        // Array to hold errors
         var errors = [];
 
         if (!attrs.name) {
@@ -18,10 +20,16 @@ define(['backbone'], function(Backbone) {
           errors.push({name: 'name', message: 'Maximum name length is 256 character'});
         }
 
+        if (attrs.description.length > 1024) {
+          errors.push({name: 'description', message: 'Maximum description length is 1024 characters'});
+        }
+
+        if (attrs.cookingTime.length > 20) {
+          errors.push({name: 'cookingTime', message: 'Maximum cooking time length is 20 characters'});
+        };
+
         // Return errors or false
         return errors.length > 0 ? errors : false;
       }
     });
-   
-    return Dish;
 });
