@@ -13,6 +13,7 @@
     "jasmine-jquery": null,
     "bootstrap": null,
     "bootstrap-modal-jakobmattsson": null,
-    "less.js": null
+    "less.js": null,
+    "handlebars.js": null
   }
 }

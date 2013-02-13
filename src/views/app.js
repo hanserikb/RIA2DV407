@@ -1,7 +1,7 @@
 define(['jquery', 'backbone', 'underscore'], function($, Backbone, _) {
   var Appview = Backbone.View.extend({
     initialize: function() {
-      alert('Hello world!');
+      console.log('Hello world!');
     }
   });
   return Appview;

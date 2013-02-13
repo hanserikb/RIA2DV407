@@ -4,6 +4,7 @@ require.config({
     'text': '../lib/requirejs-text/text',
     'jquery': '../lib/jquery/jquery',
     'underscore': '../lib/underscore-amd/underscore',
+    'handlebars': '../lib/handlebars.js/dist/handlebars',
     'backbone': '../lib/backbone/backbone',
     'backbone-relational': '../lib/backbone-relational/backbone-relational',
     'backbone.localStorage': '../lib/backbone.localStorage/backbone.localStorage',
@@ -30,6 +31,9 @@ require.config({
     'backbone.localStorage': {
       deps: ['backbone'],
       exports: 'Backbone'
+    },
+    'handlebars': {
+      exports: 'Handlebars' 
     }
   }
 });
@@ -40,10 +44,9 @@ if (window.TEST) {
 } else {
   require(
   ['views/app', 'router'], function(AppView, Router) {
-
     new Router();
     Backbone.history.start();
 
-    new AppView();
+    window.appView = new AppView();
   });
 }
