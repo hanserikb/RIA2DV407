@@ -39,7 +39,7 @@ define(['backbone', 'handlebars', '../../../src/views/dish.js', '../../../src/mo
     describe('rendering', function() {
       
       it('returns the view object', function() {
-        expect(this.DishView.render().el).toEqual(DishView.view);
+        expect(this.DishView.render()).toEqual(this.DishView);
       });
 
       it('produces correct HTML', function() {
