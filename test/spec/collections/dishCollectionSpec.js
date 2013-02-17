@@ -1,4 +1,4 @@
-define(['/src/models/dish.js', '/src/collections/dish.js'], function(Dish, DishCollection) {
+define(['../../../src/models/dish.js', '../../../src/collections/dish.js'], function(Dish, DishCollection) {
   dishes = new DishCollection();
 
   describe('Dish Collection', function() {

@@ -1,4 +1,4 @@
-define(['backbone', 'handlebars', '/src/views/dish.js', '/src/models/dish.js'], function(Backbone, Handlebars, DishView, DishModel) {
+define(['backbone', 'handlebars', '../../../src/views/dish.js', '../../../src/models/dish.js'], function(Backbone, Handlebars, DishView, DishModel) {
   describe('Dish view', function() {
 
     this.DishView = null;
@@ -39,14 +39,14 @@ define(['backbone', 'handlebars', '/src/views/dish.js', '/src/models/dish.js'], 
     describe('rendering', function() {
       
       it('returns the view object', function() {
-        expect(this.DishView.render()).toEqual(DishView.view);
+        expect(this.DishView.render().el).toEqual(DishView.view);
       });
 
       it('produces correct HTML', function() {
         this.DishView.render();
         // Using jasmine's jquery-plugin to check containing HTML of the rendered template
         expect(this.DishView.el.innerHTML).toContain('<h2>Pancakes</h2>');
-      })
+      });
     });
 
   });

@@ -1,0 +1,4 @@
+{"ts":1361095044570,"silentsave":true,"restoring":false,"patch":[[{"diffs":[[1,"define(['backbone', '/src/models/dish.js'], function(Backbone, Dish) {\n  \n  // Dish collection\n  return Backbone.Model.extend({\n    model: Dish\n  });\n})"]],"start1":0,"start2":0,"length1":0,"length2":152}]],"length":152}
+{"contributors":["hans@bentlov.se"],"silentsave":false,"ts":1361095913301,"patch":[[{"diffs":[[0,"bone', '"],[1,"../../.."],[0,"/src/mod"]],"start1":13,"start2":13,"length1":16,"length2":24}]],"length":160,"saved":false}
+{"ts":1361095951555,"patch":[[{"diffs":[[0,"e', '../"],[-1,"../../"],[0,"src/mode"]],"start1":16,"start2":16,"length1":22,"length2":16}]],"length":154,"saved":false}
+{"ts":1361096012277,"patch":[[{"diffs":[[0,"'../"],[-1,"src/"],[0,"mode"]],"start1":20,"start2":20,"length1":12,"length2":8}]],"length":150,"saved":false}

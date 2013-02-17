@@ -1,4 +1,4 @@
-define(['/src/models/dish.js'], function(Dish) {
+define(['../../../src/models/dish.js'], function(Dish) {
   describe('Dish Model', function() {
     var dish;
 

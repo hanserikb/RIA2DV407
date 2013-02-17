@@ -1,4 +1,4 @@
-define(['jquery', 'backbone', 'underscore', '/src/views/dish.js', '/src/models/dish.js'], function($, Backbone, _, DishView, DishModel) {
+define(['jquery', 'backbone', 'underscore', '../../../src/views/dish.js', '../../../src/models/dish.js'], function($, Backbone, _, DishView, DishModel) {
   var Appview = Backbone.View.extend({
     $el: $('.container'),
 
