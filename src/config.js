@@ -8,6 +8,7 @@ require.config({
     'backbone': '../lib/backbone/backbone',
     'backbone-relational': '../lib/backbone-relational/backbone-relational',
     'backbone.localStorage': '../lib/backbone.localStorage/backbone.localStorage',
+    'bootstrap-modal-jakobmattsson': '../lib/bootstrap-modal-jakobmattsson/js/bootstrap-modal',
     'jasmine': '../lib/jasmine/lib/jasmine-core/jasmine',
     'jasmine-jquery': '../lib/jasmine-jquery/lib/jasmine-jquery',
     'jasmine-html': '../lib/jasmine/lib/jasmine-core/jasmine-html'
@@ -29,6 +30,10 @@ require.config({
       exports: 'Backbone'
     },
     'backbone.localStorage': {
+      deps: ['backbone'],
+      exports: 'Backbone'
+    },
+    'bootstrap-modal-jakobmattsson': {
       deps: ['backbone'],
       exports: 'Backbone'
     },
