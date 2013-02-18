@@ -1,4 +1,4 @@
 {
   "directory": "lib/",
-  "json": "components.json"
+  "json": "/components.json"
 }
