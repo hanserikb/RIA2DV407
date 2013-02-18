@@ -1,4 +1,4 @@
-define(['../../../src/models/dish.js', '../../../src/collections/dish.js'], function(Dish, DishCollection) {
+define(['../../../src/models/dish.js', '../../../src/collections/dishes.js'], function(Dish, DishCollection) {
   dishes = new DishCollection();
 
   describe('Dish Collection', function() {
@@ -7,8 +7,11 @@ define(['../../../src/models/dish.js', '../../../src/collections/dish.js'], func
     });
 
     it('should use the dish model', function() {
-      expect(dishes.model).toEqual(Dish)
+      expect(dishes.model).toEqual(Dish);
     });
-  })
+
+    
+
+  });
   
-})
+});

@@ -33,7 +33,7 @@ define(['backbone', 'handlebars', '../../../src/views/dish.js', '../../../src/mo
     });
 
     it('Should be tied to a DOM element when created, based off the property provided.', function() {
-      expect(this.DishView.el.tagName.toLowerCase()).toBe('li');
+      expect(this.DishView.el.tagName.toLowerCase()).toBe('div');
     });
 
     describe('rendering', function() {

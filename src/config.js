@@ -7,7 +7,7 @@ require.config({
     'handlebars': '../lib/handlebars.js/dist/handlebars',
     'backbone': '../lib/backbone/backbone',
     'backbone-relational': '../lib/backbone-relational/backbone-relational',
-    'backbone.localStorage': '../lib/backbone.localStorage/backbone.localStorage',
+    'localstorage': '../lib/backbone.localStorage/backbone.localStorage',
     'bootstrap-modal-jakobmattsson': '../lib/bootstrap-modal-jakobmattsson/js/bootstrap-modal',
     'jasmine': '../lib/jasmine/lib/jasmine-core/jasmine',
     'jasmine-jquery': '../lib/jasmine-jquery/lib/jasmine-jquery',
@@ -29,7 +29,7 @@ require.config({
       deps: ['backbone'],
       exports: 'Backbone'
     },
-    'backbone.localStorage': {
+    'localstorage': {
       deps: ['backbone'],
       exports: 'Backbone'
     },

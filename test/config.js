@@ -3,7 +3,8 @@ define(['jquery', 'jasmine',
   'jasmine-html',
   '../test/spec/models/dishSpec', 
   '../test/spec/collections/dishCollectionSpec',
-  '../test/spec/views/dish'], function($, jasmine) {
+  '../test/spec/views/dish',
+  '../test/spec/views/recipeList'], function($, jasmine) {
   var jasmineEnv = jasmine.getEnv();
   jasmineEnv.updateInterval = 1000;
 

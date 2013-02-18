@@ -1,6 +1,6 @@
 define(['backbone', 'handlebars', 'text!templates/dish.html'], function(Backbone, Handlebars, DishTemplate) {
   return Backbone.View.extend({
-    tagName: 'li',
+    tagName: 'div',
     template: Handlebars.compile($(DishTemplate).html()),
 
     initialize: function() {
