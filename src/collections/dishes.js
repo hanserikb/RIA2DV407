@@ -1,7 +1,7 @@
 define(['backbone', '../../src/models/dish.js', 'localstorage'], function(Backbone, Dish) {
-  console.log(Backbone.LocalStorage());
   // Dish collection
   return Backbone.Collection.extend({
+    // Tied to the dish model
     model: Dish,
     url: '/dishes',
     localStorage: new Backbone.LocalStorage('dishes'),
