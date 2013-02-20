@@ -5,19 +5,25 @@ define(['backbone', 'handlebars', 'text!templates/recipeList.html', '../views/di
     template: Handlebars.compile($(RecipeListTemplate).html()),
 
     initialize: function() {
+      this.collection.fetch();
+
+      // Setting up eventlisteners
       this.listenTo(this.collection, 'add', this.addOne);
       this.listenTo(this.collection, 'remove', this.addAll);
+
+      // Render the collection
       this.render();
     },
 
+    // Iterating over the collections models and renders them individually
     render: function() {
       this.collection.each(this.addOne, this);
       return this;
     },
 
-    // Adds a single recipe to the list
+    // Renders & adds a single recipe to the view element
     addOne: function(recipe) {
-      console.log('addone');
+      console.log('Addone called!');
       var view = new DishView({
           model: recipe,
           collection: this.collection
@@ -25,7 +31,7 @@ define(['backbone', 'handlebars', 'text!templates/recipeList.html', '../views/di
       this.$el.append(view.render().el);
     },
 
-    // Clears the container and adds all elements
+    // Clears the container and render all elements
     addAll: function() {
       this.$el.html('');
       this.collection.each(this.addOne, this);
