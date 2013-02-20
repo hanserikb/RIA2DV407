@@ -9,9 +9,6 @@ define(['../../../src/models/dish.js', '../../../src/collections/dishes.js'], fu
     it('should use the dish model', function() {
       expect(dishes.model).toEqual(Dish);
     });
-
-    
-
   });
   
 });

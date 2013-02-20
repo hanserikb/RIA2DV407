@@ -1,5 +1,4 @@
 define(['backbone'], function(Backbone) {
-
     // Dish model
     return Backbone.Model.extend({
       defaults: {
