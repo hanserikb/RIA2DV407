@@ -11,7 +11,8 @@ require.config({
     'bootstrap-modal-jakobmattsson': '../lib/bootstrap-modal-jakobmattsson/js/bootstrap-modal',
     'jasmine': '../lib/jasmine/lib/jasmine-core/jasmine',
     'jasmine-jquery': '../lib/jasmine-jquery/lib/jasmine-jquery',
-    'jasmine-html': '../lib/jasmine/lib/jasmine-core/jasmine-html'
+    'jasmine-html': '../lib/jasmine/lib/jasmine-core/jasmine-html',
+    'Bootstrap-modal': '../lib/bootstrap/js/bootstrap-modal',
   },
   shim: {
     jasmine: {
@@ -39,6 +40,9 @@ require.config({
     },
     'handlebars': {
       exports: 'Handlebars' 
+    },
+    'Bootstrap-modal': {
+      exports: 'Bootstrap-modal',
     }
   }
 });
