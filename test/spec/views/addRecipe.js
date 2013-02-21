@@ -11,6 +11,8 @@ define(['../../../src/views/addRecipe.js', '../../../src/models/dish.js'], funct
       it('called listenTo correctly', function() {
         expect(context.listenTo).toHaveBeenCalled();
         expect(context.listenTo.callCount).toBe(2);
+
+        expect(context.listenTo.mostRecentCall.args).toEqual([context.model, "change", context.modelChanged])
       });
 
       it('called render', function() {

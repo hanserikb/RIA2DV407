@@ -7,12 +7,14 @@ define(['jquery', 'underscore', 'backbone', 'handlebars', 'text!templates/addRec
       this.model = new DishModel();
       this.render();
         // Listen to model validation errors
-      this.listenTo(this.model, 'invalid', this.renderErrors);
-      this.listenTo(this.model, 'change', function(model){ 
-           if (model.isValid) {
-            $('#errors').html('');
-           };
-        })
+        this.listenTo(this.model, 'invalid', this.renderErrors);
+        this.listenTo(this.model, 'change', this.modelChanged);
+      },
+
+      modelChanged: function(model){ 
+       if (model.isValid) {
+        $('#errors').html('');
+      };
     },
 
     // Render the errors and append them to a error-container
