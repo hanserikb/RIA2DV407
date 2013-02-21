@@ -2,7 +2,7 @@ define(['backbone', 'handlebars', 'text!templates/recipeList.html', '../views/di
   return Backbone.View.extend({
     el: '#content',
     className: 'recipeList',
-    template: Handlebars.compile($(RecipeListTemplate).html()),
+    template: Handlebars.compile(RecipeListTemplate),
 
     initialize: function() {
       this.collection.fetch();

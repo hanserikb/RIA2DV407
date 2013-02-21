@@ -2,7 +2,7 @@ define(['backbone', 'handlebars', 'text!templates/dish.html'], function(Backbone
   return Backbone.View.extend({
     tagName: 'div',
     // Using handlebars to compile templates
-    template: Handlebars.compile($(DishTemplate).html()),
+    template: Handlebars.compile(DishTemplate),
 
     initialize: function() {
       // Reacts on changes
