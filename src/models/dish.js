@@ -6,13 +6,17 @@ define(['backbone'], function(Backbone) {
         description: 'No description',
         cookingTime: 'N/A'
       },
+      
       validate: function(attrs) {
-
         // Array to hold errors
         var errors = [];
 
         if (!attrs.name) {
           errors.push({name: 'name', message: 'You must enter a name for the dish'});
+        }
+
+        if (!attrs.description) {
+          errors.push({name: 'description', message: 'You must enter a description for the dish'});
         }
 
         if (attrs.name.length > 256) {
