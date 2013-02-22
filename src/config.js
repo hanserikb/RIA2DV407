@@ -12,13 +12,14 @@ require.config({
     'localstorage': '../lib/backbone.localStorage/backbone.localStorage',
     'jasmine': '../lib/jasmine/lib/jasmine-core/jasmine',
     'jasmine-jquery': '../lib/jasmine-jquery/lib/jasmine-jquery',
-    'jasmine-html': '../lib/jasmine/lib/jasmine-core/jasmine-html'
+    'jasmine-html': '../lib/jasmine/lib/jasmine-core/jasmine-html',
+    
   },
   shim: {
     jQ: {
       init: function() {
         console.log('Shimming jquery');
-        return this.$.noConflict();
+        return this.$;
       }
     },
     underscore: {
