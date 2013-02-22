@@ -18,7 +18,7 @@ require.config({
     jQ: {
       init: function() {
         console.log('Shimming jquery');
-        return this.$;
+        return this.$.noConflict();
       }
     },
     underscore: {
