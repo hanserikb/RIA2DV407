@@ -4,7 +4,7 @@
   "dependencies": {
     "jquery": null,
     "backbone": null,
-    "underscore-amd": null,
+    "underscore": null,
     "requirejs": null,
     "requirejs-text": null,
     "backbone.localStorage": null,

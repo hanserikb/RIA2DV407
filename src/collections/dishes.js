@@ -1,4 +1,4 @@
-define(['backbone', '../../src/models/dish.js', 'localstorage'], function(Backbone, Dish) {
+define(['jQ', 'backbone', '../../src/models/dish.js', 'localstorage'], function($, Backbone, Dish) {
   // Dish collection
   return Backbone.Collection.extend({
     // Tied to the dish model

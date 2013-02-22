@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'backbone', 'handlebars', 'text!templates/addRecipe.html', '../models/dish'], function($, _, Backbone, Handlebars, addRecipeTemplate, DishModel) {
+define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!templates/addRecipe.html', '../models/dish'], function($, _, Backbone, Handlebars, addRecipeTemplate, DishModel) {
   return Backbone.View.extend({
     template: Handlebars.compile(addRecipeTemplate),
     formData: {},

@@ -1,14 +1,12 @@
-define(['jquery',
+define(['jQ',
   'backbone',
   'underscore',
   '../../../src/views/dish.js',
   '../../../src/models/dish.js',
   '../views/recipeList',
   '../collections/dishes',
-  '../views/addRecipe',
-  'Bootstrap-modal'], function($, Backbone, _, DishView, DishModel, recipeList, DishCollection, addRecipeView) {
+  '../views/addRecipe', 'modal'], function($, Backbone, _, DishView, DishModel, recipeList, DishCollection, addRecipeView) {
     var Appview = Backbone.View.extend({
-      el: 'body',
       $el: $('body'),
 
       initialize: function() {

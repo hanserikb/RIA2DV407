@@ -1,4 +1,4 @@
-define(['backbone', 'handlebars', 'text!templates/dish.html'], function(Backbone, Handlebars, DishTemplate) {
+define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!templates/dish.html'], function($, _, Backbone, Handlebars, DishTemplate) {
   return Backbone.View.extend({
     tagName: 'div',
     // Using handlebars to compile templates

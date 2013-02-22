@@ -1,4 +1,4 @@
-define(['backbone', 'handlebars', 'text!templates/recipeList.html', '../views/dish', '../collections/dishes'], function(Backbone, Handlebars, RecipeListTemplate, DishView, DishCollection) {
+define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!templates/recipeList.html', '../views/dish', '../collections/dishes'], function($, _, Backbone, Handlebars, RecipeListTemplate, DishView, DishCollection) {
   return Backbone.View.extend({
     el: '#content',
     className: 'recipeList',
