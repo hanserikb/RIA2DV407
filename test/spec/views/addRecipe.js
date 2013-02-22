@@ -1,11 +1,13 @@
 define(['../../../src/views/addRecipe.js', '../../../src/models/dish.js'], function(AddRecipeView, DishModel) {
   // ## Test suite for the addRecipe view
   describe('the initialize function', function() {
+
       var initialize = AddRecipeView.prototype.initialize,
         context = {
           listenTo: jasmine.createSpy('listenToSpy').andReturn(context),
           render: jasmine.createSpy('renderSpy').andReturn(context)
-      };
+        };
+
       initialize.call(context);
 
       it('called listenTo correctly', function() {
