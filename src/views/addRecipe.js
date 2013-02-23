@@ -4,7 +4,7 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 
     formData: {},
 
     initialize: function(opts) {
-      this.model = opts.model || new RecipeModel();
+      this.model = opts && opts.model || new RecipeModel();
       this.render();
         // Listen to model validation errors
         this.listenTo(this.model, 'invalid', this.renderErrors);
