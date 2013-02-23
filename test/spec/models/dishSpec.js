@@ -13,7 +13,6 @@ define(['../../../src/models/dish.js'], function(Dish) {
     });
 
     describe('Default values', function() {
-
       // The default description should be set
       it('should be set on description', function() {
         expect(dish.get('description')).toEqual('No description');
@@ -25,7 +24,6 @@ define(['../../../src/models/dish.js'], function(Dish) {
     });
 
     describe('Validation', function() {
-
       // Test if the validation of the name works
       it('should not accept empty name', function() {
         dish.set({name: ''});

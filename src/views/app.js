@@ -1,17 +1,17 @@
 define(['jQ',
   'backbone',
   'underscore',
-  '../../../src/views/dish.js',
-  '../../../src/models/dish.js',
-  '../views/recipeList',
-  '../collections/dishes',
-  '../views/addRecipe', 'modal'], function($, Backbone, _, DishView, DishModel, recipeList, DishCollection, addRecipeView) {
+  'recipeView',
+  'recipeModel',
+  'recipeListView',
+  'recipeCollection',
+  'addRecipeView', 'modal'], function($, Backbone, _, RecipeView, RecipeModel, RecipeListView, RecipeCollection, AddRecipeView) {
     var Appview = Backbone.View.extend({
-      $el: $('body'),
+      el: 'body',
 
       initialize: function() {
-        recipeCollection = new DishCollection();
-        recipes = new recipeList({collection: recipeCollection});
+        recipeCollection = new RecipeCollection();
+        recipes = new RecipeListView({collection: recipeCollection});
       },
 
       events: {
@@ -19,7 +19,7 @@ define(['jQ',
       },
 
       newAddRecipeView: function() {
-        var addRecipeview = new addRecipeView();
+        var addRecipeview = new AddRecipeView();
         this.$el.append(addRecipeview.render().el);
         $('#add-recipe-modal').modal().css({
           width: 'auto',

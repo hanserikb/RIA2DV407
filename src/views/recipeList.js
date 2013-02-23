@@ -1,4 +1,4 @@
-define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!templates/recipeList.html', '../views/dish', '../collections/dishes'], function($, _, Backbone, Handlebars, RecipeListTemplate, DishView, DishCollection) {
+define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!recipeListTemplate', 'recipeView'], function($, _, Backbone, Handlebars, RecipeListTemplate, RecipeView) {
   return Backbone.View.extend({
     el: '#content',
     className: 'recipeList',
@@ -24,7 +24,7 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!templates/recipeList
     // Renders & adds a single recipe to the view element
     addOne: function(recipe) {
       console.log('Addone called!');
-      var view = new DishView({
+      var view = new RecipeView({
           model: recipe,
           collection: this.collection
       });

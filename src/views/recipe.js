@@ -1,8 +1,8 @@
-define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!templates/dish.html'], function($, _, Backbone, Handlebars, DishTemplate) {
+define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!recipeTemplate'], function($, _, Backbone, Handlebars, RecipeTemplate) {
   return Backbone.View.extend({
     tagName: 'div',
     // Using handlebars to compile templates
-    template: Handlebars.compile(DishTemplate),
+    template: Handlebars.compile(RecipeTemplate),
 
     initialize: function() {
       // Reacts on changes

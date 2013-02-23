@@ -1,20 +1,20 @@
-define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!templates/addRecipe.html', '../models/dish'], function($, _, Backbone, Handlebars, addRecipeTemplate, DishModel) {
+define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 'recipeModel'], function($, _, Backbone, Handlebars, AddRecipeTemplate, RecipeModel) {
   return Backbone.View.extend({
-    template: Handlebars.compile(addRecipeTemplate),
+    template: Handlebars.compile(AddRecipeTemplate),
     formData: {},
 
     initialize: function(opts) {
-      this.model = new DishModel();
+      this.model = opts.model || new RecipeModel();
       this.render();
         // Listen to model validation errors
         this.listenTo(this.model, 'invalid', this.renderErrors);
         this.listenTo(this.model, 'change', this.modelChanged);
       },
 
-      modelChanged: function(model){ 
-       if (model.isValid) {
-        $('#errors').html('');
-      };
+      modelChanged: function(model){
+        if (model.isValid) {
+          $('#errors').html('');
+        }
     },
 
     // Render the errors and append them to a error-container

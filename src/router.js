@@ -1,4 +1,4 @@
-define(['underscore', 'backbone'], function(_, Backbone, Person) {
+define(['underscore', 'backbone'], function(_, Backbone) {
   console.log(Backbone.Router);
   var Router = Backbone.Router.extend({
     
