@@ -1,51 +1,51 @@
-define(['backbone', 'handlebars', '../../../src/views/dish.js', '../../../src/models/dish.js'], function(Backbone, Handlebars, DishView, DishModel) {
+define(['backbone', 'handlebars', 'recipeView', 'recipeModel'], function(Backbone, Handlebars, RecipeView, RecipeModel) {
   describe('Dish view', function() {
 
-    this.DishView = null;
-    this.DishModel = null;
+    this.RecipeView = null;
+    this.RecipeModel = null;
 
     beforeEach(function() {
       $('body').append('<ul id="dishes"></ul>');
-      this.DishModel = new DishModel({
+      this.RecipeModel = new RecipeModel({
         name: "Pancakes",
         description: "Very good pcakes!",
         cookingTime: "15minutes"
       });
-      this.DishView = new DishView({model: this.DishModel});
+      this.RecipeView = new RecipeView({model: this.RecipeModel});
     });
 
     afterEach(function() {
-      this.DishView.remove();
+      this.RecipeView.remove();
       $('#dishes').remove();
     });
 
     it('should be defined', function() {
-      expect(DishView).toBeDefined();
+      expect(RecipeView).toBeDefined();
     });
 
     it('should have a model associated', function() {
-      expect(this.DishView.model).toBeDefined();
+      expect(this.RecipeView.model).toBeDefined();
     })
 
     it('should have name in it', function() {
-      this.DishView.model = ({name: 'Köttbullar'});
-      expect(this.DishView.model.name).toEqual('Köttbullar');
+      this.RecipeView.model = ({name: 'Köttbullar'});
+      expect(this.RecipeView.model.name).toEqual('Köttbullar');
     });
 
     it('Should be tied to a DOM element when created, based off the property provided.', function() {
-      expect(this.DishView.el.tagName.toLowerCase()).toBe('div');
+      expect(this.RecipeView.el.tagName.toLowerCase()).toBe('div');
     });
 
     describe('rendering', function() {
       
       it('returns the view object', function() {
-        expect(this.DishView.render()).toEqual(this.DishView);
+        expect(this.RecipeView.render()).toEqual(this.RecipeView);
       });
 
       it('produces correct HTML', function() {
-        this.DishView.render();
+        this.RecipeView.render();
         // Using jasmine's jquery-plugin to check containing HTML of the rendered template
-        expect(this.DishView.el.innerHTML).toContain('<h2>Pancakes</h2>');
+        expect(this.RecipeView.el.innerHTML).toContain('<h2>Pancakes</h2>');
       });
     });
 

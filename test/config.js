@@ -1,5 +1,5 @@
 // Laddar in nödvändiga bilbiotek för att köra igång test
-define(['jquery', 'jasmine',
+define(['jQ', 'jasmine',
   'jasmine-html',
   '../test/spec/models/dishSpec', 
   '../test/spec/collections/dishCollectionSpec',

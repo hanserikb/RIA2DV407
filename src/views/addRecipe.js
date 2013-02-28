@@ -6,33 +6,58 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 
     initialize: function(opts) {
       this.model = opts && opts.model || new RecipeModel();
       this.render();
-        // Listen to model validation errors
-        this.listenTo(this.model, 'invalid', this.renderErrors);
-        this.listenTo(this.model, 'change', this.modelChanged);
-      },
+      // Listen to model validation errors
+      this.listenTo(this.model, 'invalid', this.checkErrors);
+      this.listenTo(this.model, 'change', this.checkErrors);
 
-      modelChanged: function(model){
-        if (model.isValid) {
-          $('#errors').html('');
-        }
+      this.toggleModal();
+    },
+
+    toggleModal: function() {
+      var that = this;
+      setTimeout(function() {
+        that.$('#add-recipe-modal').modal('toggle').css({
+          width: 'auto',
+          'margin-left': function () {
+            return -($(this).width() / 2);
+          }
+        });
+      }, 0);
     },
 
     // Render the errors and append them to a error-container
-    renderErrors: function(model) {
-      console.log('rendererrors');
+    checkErrors: function(model) {
       this.$('#errors').html('');
-      _.each(model.validationError, function(error) {
-        // TODO: Render the messages in HTML
-        $('#errors').append(error.message + '<br>');
-      });
+      console.log(model.isValid())
+      if (model.isValid) {
+        _.each(model.validationError, function(error) {
+          // TODO: Render the messages in HTML
+          this.$('#errors').append(error.message + '<br>');
+        }); 
+      }
+
+      
     },
 
     events: {
       // Validate model on every keyup
       'keyup input': 'inputChange',
-      'keyup textarea': 'inputChange'
+      'keyup textarea': 'inputChange',
+
+      // Submit form
+      'submit form': 'addRecipe'
     },
 
+    addRecipe: function(e) {
+      // Prevent form from submitting
+      e.preventDefault();
+
+      // Add the model object to the collection
+      this.collection.add(this.model);
+
+      // Close the modal
+      this.$('#add-recipe-modal').modal('toggle');
+    },
     // Sets the model to the typed value
     inputChange: function(e) {
       // Gets the field the user is typing in
@@ -45,6 +70,7 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 
 
       // Sets values on the recipe model object
       this.model.set(this.formData, {validate: true});
+
     },
 
     render: function() {

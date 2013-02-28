@@ -1,40 +1,40 @@
-define(['../../../src/models/dish.js'], function(Dish) {
-  describe('Dish Model', function() {
-    var dish;
+define(['recipeModel'], function(RecipeModel) {
+  describe('RecipeModel Model', function() {
+    var recipe;
 
-    // Create a new dish for each test
+    // Create a new recipe for each test
     beforeEach(function() {
-      dish = new Dish();
+      recipe = new RecipeModel();
     });
 
-    // Dish object should be defined
+    // RecipeModel object should be defined
     it('should be defined', function() {
-      expect(dish).toBeDefined();
+      expect(recipe).toBeDefined();
     });
 
     describe('Default values', function() {
       // The default description should be set
       it('should be set on description', function() {
-        expect(dish.get('description')).toEqual('No description');
+        expect(recipe.get('description')).toEqual('No description');
       });
 
       it('should be set on cooking time', function() {
-        expect(dish.get('cookingTime')).toEqual('N/A');
+        expect(recipe.get('cookingTime')).toEqual('N/A');
       });
     });
 
     describe('Validation', function() {
       // Test if the validation of the name works
       it('should not accept empty name', function() {
-        dish.set({name: ''});
+        recipe.set({name: ''});
 
-        dish.save();
+        recipe.save();
 
-        expect(dish.isValid()).toBeFalsy();
+        expect(recipe.isValid()).toBeFalsy();
 
-        expect(dish.validationError).toContain({
+        expect(recipe.validationError).toContain({
           name: 'name',
-          message: 'You must enter a name for the dish'
+          message: 'You must enter a name for the recipe'
         });
       });
 
@@ -44,13 +44,13 @@ define(['../../../src/models/dish.js'], function(Dish) {
         for(i = 256; i >= 0; i--) {
           name += 'a';
         }
-        dish.set({name: name});
+        recipe.set({name: name});
 
-        dish.save();
+        recipe.save();
 
-        expect(dish.isValid()).toBeFalsy();
+        expect(recipe.isValid()).toBeFalsy();
 
-        expect(dish.validationError).toContain({
+        expect(recipe.validationError).toContain({
           name: 'name',
           message: 'Maximum name length is 256 character'
         });
@@ -62,13 +62,13 @@ define(['../../../src/models/dish.js'], function(Dish) {
         for(i = 1025; i >= 0; i--) {
           string += 'a';
         }
-        dish.set({description: string});
+        recipe.set({description: string});
 
-        dish.save();
+        recipe.save();
 
-        expect(dish.isValid()).toBeFalsy();
+        expect(recipe.isValid()).toBeFalsy();
 
-        expect(dish.validationError).toContain({
+        expect(recipe.validationError).toContain({
           name: 'description',
           message: 'Maximum description length is 1024 characters'
         });
@@ -80,13 +80,13 @@ define(['../../../src/models/dish.js'], function(Dish) {
         for(i = 1025; i >= 0; i--) {
           string += 'a';
         }
-        dish.set({cookingTime: string});
+        recipe.set({cookingTime: string});
 
-        dish.save();
+        recipe.save();
 
-        expect(dish.isValid()).toBeFalsy();
+        expect(recipe.isValid()).toBeFalsy();
 
-        expect(dish.validationError).toContain({
+        expect(recipe.validationError).toContain({
           name: 'cookingTime',
           message: 'Maximum cooking time length is 20 characters'
         });

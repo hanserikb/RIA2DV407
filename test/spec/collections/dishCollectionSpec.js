@@ -1,14 +1,11 @@
-define(['../../../src/models/dish.js', '../../../src/collections/dishes.js'], function(Dish, DishCollection) {
-  dishes = new DishCollection();
+define(['recipeModel', 'recipeCollection'], function(recipeModel, receipeCollection) {
+  recipes = new recipeModel();
 
   describe('Dish Collection', function() {
     it('should exist', function() {
-      expect(DishCollection).toBeDefined();
+      expect(receipeCollection).toBeDefined();
     });
 
-    it('should use the dish model', function() {
-      expect(dishes.model).toEqual(Dish);
-    });
   });
   
 });

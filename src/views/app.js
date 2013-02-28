@@ -10,8 +10,8 @@ define(['jQ',
       el: 'body',
 
       initialize: function() {
-        recipeCollection = new RecipeCollection();
-        recipes = new RecipeListView({collection: recipeCollection});
+        this.recipeCollection = new RecipeCollection();
+        recipes = new RecipeListView({collection: this.recipeCollection});
       },
 
       events: {
@@ -19,14 +19,8 @@ define(['jQ',
       },
 
       newAddRecipeView: function() {
-        var addRecipeview = new AddRecipeView();
+        var addRecipeview = new AddRecipeView({collection: this.recipeCollection});
         this.$el.append(addRecipeview.render().el);
-        $('#add-recipe-modal').modal().css({
-          width: 'auto',
-          'margin-left': function () {
-            return -($(this).width() / 2);
-          }
-        });;
       }
 
     });

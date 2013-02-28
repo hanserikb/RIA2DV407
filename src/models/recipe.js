@@ -4,7 +4,8 @@ define(['backbone'], function(Backbone) {
       defaults: {
         name: '',
         description: 'No description',
-        cookingTime: 'N/A'
+        cookingTime: 'N/A',
+        author: 'N/A'
       },
       
       validate: function(attrs) {
@@ -12,11 +13,11 @@ define(['backbone'], function(Backbone) {
         var errors = [];
 
         if (!attrs.name) {
-          errors.push({name: 'name', message: 'You must enter a name for the dish'});
+          errors.push({name: 'name', message: 'You must enter a name for the recipe'});
         }
 
         if (!attrs.description) {
-          errors.push({name: 'description', message: 'You must enter a description for the dish'});
+          errors.push({name: 'description', message: 'You must enter a description for the recipe'});
         }
 
         if (attrs.name.length > 256) {
