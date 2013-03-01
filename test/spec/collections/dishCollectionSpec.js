@@ -25,6 +25,8 @@ define(['recipeModel', 'recipeCollection'], function(RecipeModel, RecipeCollecti
         expect(context.on.argsForCall[1]).toEqual(['remove', context.removeRecipe, context]);
       });
 
+      
+
     });
 
     describe('the saveRecipe function', function() {

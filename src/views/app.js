@@ -10,12 +10,19 @@ define(['jQ',
       el: 'body',
 
       initialize: function() {
+
+        Backbone.on('recipe:show', this.showRecipe, this);
+
         this.recipeCollection = new RecipeCollection();
         recipes = new RecipeListView({collection: this.recipeCollection});
       },
 
       events: {
         'click #add-recipe': "newAddRecipeView"
+      },
+
+      showRecipe: function(id) {
+        console.log('showrecipe');
       },
 
       newAddRecipeView: function() {

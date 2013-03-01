@@ -3,12 +3,17 @@ define(['underscore', 'backbone'], function(_, Backbone) {
   var Router = Backbone.Router.extend({
     
     routes: {
-      '': 'index'
+      '': 'index',
+      'recipies/:id': 'showDetails'
     },
 
     // Index page
     index: function() {
       
+    },
+    showDetails: function(id) {
+      console.log(id);
+      Backbone.trigger('recipe:show', [id]);
     }
 
   });

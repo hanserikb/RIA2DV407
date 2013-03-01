@@ -11,6 +11,12 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!recipeTemplate'], fu
       });
     },
 
+    events: {
+      'click .showmore': function(e) {
+        e.preventDefault();
+      }
+    },
+
     // Renders a single dish into a div using the given model object
     // Also returns the complete view
     render: function() {

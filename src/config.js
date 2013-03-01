@@ -32,7 +32,10 @@ require.config({
     // ### Templates
     'addRecipeTemplate': 'templates/addRecipe.html',
     'recipeTemplate': 'templates/recipe.html',
-    'recipeListTemplate': 'templates/recipeList.html'
+    'recipeListTemplate': 'templates/recipeList.html',
+
+    // ### Other
+    'router': 'router'
   },
   shim: {
     jQ: {
@@ -82,9 +85,9 @@ if (window.TEST) {
   require(['../test/config']);
 } else {
   require(
-    ['appView'], function(AppView) {
-      //new Router();
-      //Backbone.history.start();
+    ['backbone', 'appView', 'router'], function(Backbone, AppView, Router) {
+      new Router();
+      Backbone.history.start();
 
       var appView = new AppView();
     });
