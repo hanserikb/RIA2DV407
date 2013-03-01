@@ -7,6 +7,7 @@ define(['jQ', 'backbone', 'recipeModel', 'localstorage'], function($, Backbone, 
     localStorage: new Backbone.LocalStorage('dishes'),
     initialize: function() {
       this.on('add', this.saveRecipe, this);
+      this.on('remove', this.removeRecipe, this);
       /*
       var dish0 = new RecipeModel({name: 'Köttbullar', description: 'Fina bullar', cookingTime: '20 minutes'});
       var dish1 = new RecipeModel({name: 'Köttbullar', description: 'Fina bullar', cookingTime: '20 minutes'});
