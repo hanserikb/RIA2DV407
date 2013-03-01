@@ -32,14 +32,27 @@ define(['underscore', 'addRecipeView', 'recipeModel'], function(_, AddRecipeView
   
   describe('the checkErrors function', function() {
     var checkErrors = AddRecipeView.prototype.checkErrors,
-      model = {isValid: false},
+      model = {
+        isValid: jasmine.createSpy('isValidSpy').andReturn(true),
+        validationError: [
+          {
+            message: "Error #1",
+          },
+          {
+            message: "Error #2",
+          },
+          {
+            message: "Error #3"
+          }
+        ]
+      },
       $el = {
         html: jasmine.createSpy('htmlSpy'),
         append: jasmine.createSpy('appendSpy'),
         modal: jasmine.createSpy('modalSpy')
-      },
-      context: {
-        $: jasmine.createSpy('stub').andReturn($el)
+      };
+      context = {
+        $: jasmine.createSpy('stub').andReturn($el),
       };
 
       checkErrors.call(context, model);
@@ -52,7 +65,18 @@ define(['underscore', 'addRecipeView', 'recipeModel'], function(_, AddRecipeView
         expect($el.html).toHaveBeenCalledWith('');
       });
 
+      it('should check if the model object is valid', function() {
+        expect(model.isValid).toHaveBeenCalled();
+      });
+
+      it('should call the append method as many times as the error messages count', function() {
+        expect($el.append).toHaveBeenCalled();
+        expect($el.append.callCount).toBe(4);
+      })
+
   });
+  
+  
 
   describe('the toggleModal function', function() {
     var toggleModal = AddRecipeView.prototype.toggleModal,
