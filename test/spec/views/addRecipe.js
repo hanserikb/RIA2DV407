@@ -1,14 +1,22 @@
-define(['underscore', 'addRecipeView', 'recipeModel'], function(_, AddRecipeView, RecipeModel) {
+define(['addRecipeView'], function(AddRecipeView) {
+
   // ## Test suite for the addRecipe view
-  describe('the initialize function', function() {
+  describe('the AddRecipeView view', function() {
 
+    // ### Tests for the initialize function
+    describe('the initialize function', function() {
+
+      // Catch the method from the prototype
       var initialize = AddRecipeView.prototype.initialize,
-        context = {
-          listenTo: jasmine.createSpy('listenToSpy').andReturn(context),
-          render: jasmine.createSpy('renderSpy').andReturn(context),
-          toggleModal: jasmine.createSpy('toggleModalSpy').andReturn(context)
-        };
 
+      // Create a fake context conaining things relevant to the tested method
+      context = {
+        listenTo: jasmine.createSpy('listenToSpy'),
+        render: jasmine.createSpy('renderSpy'),
+        toggleModal: jasmine.createSpy('toggleModalSpy')
+      };
+
+      // Call the method with the fake context
       initialize.call(context);
 
       it('called listenTo correctly', function() {
@@ -27,34 +35,43 @@ define(['underscore', 'addRecipeView', 'recipeModel'], function(_, AddRecipeView
         expect(context.toggleModal).toHaveBeenCalled();
         expect(context.toggleModal.callCount).toBe(1);
       });
+    });
 
-  });
-  
-  describe('the checkErrors function', function() {
-    var checkErrors = AddRecipeView.prototype.checkErrors,
+    // ### Tests for the checkError function
+    describe('the checkErrors function', function() {
+
+      // Catch the method from the prototype
+      var checkErrors = AddRecipeView.prototype.checkErrors,
+
+      // Fake model with spies and errors
       model = {
         isValid: jasmine.createSpy('isValidSpy').andReturn(true),
         validationError: [
-          {
-            message: "Error #1",
-          },
-          {
-            message: "Error #2",
-          },
-          {
-            message: "Error #3"
-          }
+        {
+          message: 'Error #1'
+        },
+        {
+          message: 'Error #2'
+        },
+        {
+          message: 'Error #3'
+        }
         ]
       },
+
+      // Fake the el property and add some spies to it
       $el = {
         html: jasmine.createSpy('htmlSpy'),
         append: jasmine.createSpy('appendSpy'),
         modal: jasmine.createSpy('modalSpy')
-      };
+      },
+
+      // Fake the context and add the el property to $
       context = {
-        $: jasmine.createSpy('stub').andReturn($el),
+        $: jasmine.createSpy('stub').andReturn($el)
       };
 
+      // Call it
       checkErrors.call(context, model);
 
       it('should use the correct selector', function() {
@@ -71,48 +88,78 @@ define(['underscore', 'addRecipeView', 'recipeModel'], function(_, AddRecipeView
 
       it('should call the append method as many times as the error messages count', function() {
         expect($el.append).toHaveBeenCalled();
-        expect($el.append.callCount).toBe(4);
-      })
-
-  });
-  
-  
-
-  describe('the toggleModal function', function() {
-    var toggleModal = AddRecipeView.prototype.toggleModal,
-      model = { isValid: true },
-
-      $el = {
-        html: jasmine.createSpy('htmlSpy'),
-        append: jasmine.createSpy('appendSpy'),
-        modal: jasmine.createSpy('modalSpy')
-      },
-
-      context = {
-        $: jasmine.createSpy('stub').andReturn($el),
-      };
-
-      toggleModal.call(context, model);
-
-      waits(0);
-
-      it('should have called the modal function', function() {
-        expect(context.$).toHaveBeenCalledWith('#add-recipe-modal');
+        expect($el.append.callCount).toBe(3);
       });
+    });
+// ### Tests for the addRecipe method
+describe('the addRecipe method', function() {
 
+  // Catch the method from the prototype
+  var addRecipe = AddRecipeView.prototype.addRecipe,
+
+  // Fake the el property and add some spies to it
+  $el = {
+    html: jasmine.createSpy('htmlSpy'),
+    append: jasmine.createSpy('appendSpy'),
+    modal: jasmine.createSpy('modalSpy').andReturn({css: jasmine.createSpy('addSpy')})
+  },
+
+  // Fake the context and add a collection property with a spy to it. And a model. And $+el
+  context = {
+    collection: {
+      add: jasmine.createSpy('addSpy')
+    },
+    model: jasmine.createSpy('modelSpy'),
+    $: jasmine.createSpy('stub').andReturn($el)
+  },
+
+  // Fake the event parameter
+  e = {
+    preventDefault: jasmine.createSpy('preventDefaultSpy')
+  };
+
+  // Ring ring!
+  addRecipe.call(context, e);
+
+  it('should prevent the default action to be triggered', function() {
+    expect(e.preventDefault).toHaveBeenCalled();
   });
 
-
-  describe('The addRecipe view', function() {
-
-    addRecipeView = null;
-
-    beforeEach(function() {
-      addRecipeView = new AddRecipeView({model: new RecipeModel()});
-    });
-
-    it('should have a dish model connected to it', function() {
-      expect(addRecipeView.model).toBeDefined();
-    });
+  it('should add the model to the collection', function() {
+    expect(context.collection.add).toHaveBeenCalled();
   });
+
+  it('should toggle the modal', function() {
+    expect($el.modal).toHaveBeenCalled();
+  });
+});
+// ### Tests for the toggleModal function
+describe('the toggleModal function', function() {
+
+  // Catch the method from the prototype
+  var toggleModal = AddRecipeView.prototype.toggleModal,
+
+  // Fake stuff
+  model = { isValid: true },
+  css = {
+    css: jasmine.createSpy('cssSpy')
+  },
+  $el = {
+    html: jasmine.createSpy('htmlSpy'),
+    append: jasmine.createSpy('appendSpy'),
+    modal: jasmine.createSpy('modalSpy').andReturn(css)
+  },
+  context = {
+    $: jasmine.createSpy('stub').andReturn($el)
+  };
+
+  // Make a call!
+  toggleModal.call(context, model);
+
+  it('should have called the modal function', function() {
+    expect(context.$).toHaveBeenCalledWith('#add-recipe-modal');
+  });
+});
+
+});
 });

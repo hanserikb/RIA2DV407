@@ -3,6 +3,8 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 
     template: Handlebars.compile(AddRecipeTemplate),
     formData: {},
 
+    // Sets up model if none passed
+    // Adds listeners and toggles the modal
     initialize: function(opts) {
       this.model = opts && opts.model || new RecipeModel();
       this.render();
@@ -10,9 +12,13 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 
       this.listenTo(this.model, 'invalid', this.checkErrors);
       this.listenTo(this.model, 'change', this.checkErrors);
 
+
+      console.log('this',  this)
       this.toggleModal();
+
     },
 
+    // Shows or hides the modal window
     toggleModal: function() {
       var that = this;
       setTimeout(function() {
@@ -33,7 +39,7 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 
         _.each(model.validationError, function(error) {
           // TODO: Render the messages in HTML
           this.$('#errors').append(error.message + '<br>');
-        }); 
+        }, this); 
       }
 
       

@@ -44,7 +44,7 @@ require.config({
     underscore: {
       init: function() {
         console.log('Shimmming underscore');
-        return this._.noConflict(true);
+        return this._;
       }
     },
     backbone: {
@@ -56,6 +56,10 @@ require.config({
     },
     localstorage: {
       deps: ['jQ', 'pureBackbone', 'underscore'],
+    },
+    'backbone-relational': {
+      deps: ['underscore', 'pureBackbone'],
+      exports: 'Backbone'
     },
     'handlebars': {
       exports: 'Handlebars'
