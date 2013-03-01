@@ -6,6 +6,7 @@ define(['jQ', 'backbone', 'recipeModel', 'localstorage'], function($, Backbone, 
     url: '/dishes',
     localStorage: new Backbone.LocalStorage('dishes'),
     initialize: function() {
+      this.on('add', this.saveRecipe, this);
       /*
       var dish0 = new RecipeModel({name: 'Köttbullar', description: 'Fina bullar', cookingTime: '20 minutes'});
       var dish1 = new RecipeModel({name: 'Köttbullar', description: 'Fina bullar', cookingTime: '20 minutes'});
@@ -13,6 +14,10 @@ define(['jQ', 'backbone', 'recipeModel', 'localstorage'], function($, Backbone, 
 
       this.add([dish0, dish1, dish2]);
       */
+    },
+
+    saveRecipe: function(model) {
+      model.save();
     }
   });
 });
