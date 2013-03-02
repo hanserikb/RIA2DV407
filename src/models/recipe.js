@@ -3,7 +3,7 @@ define(['backbone'], function(Backbone) {
     return Backbone.Model.extend({
       defaults: {
         name: '',
-        description: 'No description',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget neque enim. Phasellus rhoncus tempor vestibulum. Nam volutpat libero vel ipsum interdum aliquet. Duis suscipit pulvinar suscipit. Donec vitae tempus justo. Nunc adipiscing tempus diam, vitae pretium mi iaculis a. Cras sit amet nibh non magna malesuada venenatis.',
         cookingTime: 'N/A',
         author: 'N/A'
       },

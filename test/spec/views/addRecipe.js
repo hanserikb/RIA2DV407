@@ -133,6 +133,7 @@ describe('the addRecipe method', function() {
     expect($el.modal).toHaveBeenCalled();
   });
 });
+
 // ### Tests for the toggleModal function
 describe('the toggleModal function', function() {
 

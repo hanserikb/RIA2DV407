@@ -15,7 +15,7 @@ define(['recipeModel'], function(RecipeModel) {
     describe('Default values', function() {
       // The default description should be set
       it('should be set on description', function() {
-        expect(recipe.get('description')).toEqual('No description');
+        expect(recipe.get('description')).toEqual('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget neque enim. Phasellus rhoncus tempor vestibulum. Nam volutpat libero vel ipsum interdum aliquet. Duis suscipit pulvinar suscipit. Donec vitae tempus justo. Nunc adipiscing tempus diam, vitae pretium mi iaculis a. Cras sit amet nibh non magna malesuada venenatis.');
       });
 
       it('should be set on cooking time', function() {

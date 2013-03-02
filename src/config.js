@@ -28,6 +28,7 @@ require.config({
     'addRecipeView': 'views/addRecipe',
     'recipeView': 'views/recipe',
     'recipeListView': 'views/recipeList',
+    'showRecipeView': 'views/showRecipe',
 
     // ### Templates
     'addRecipeTemplate': 'templates/addRecipe.html',

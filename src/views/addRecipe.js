@@ -34,15 +34,14 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 
     // Render the errors and append them to a error-container
     checkErrors: function(model) {
       this.$('#errors').html('');
-      console.log(model.isValid())
-      if (model.isValid) {
+      if (model.isValid()) {
+        console.log(model)
         _.each(model.validationError, function(error) {
+          console.log(error)
           // TODO: Render the messages in HTML
           this.$('#errors').append(error.message + '<br>');
         }, this); 
-      }
-
-      
+      }      
     },
 
     events: {
@@ -60,10 +59,12 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 
 
       // Add the model object to the collection
       this.collection.add(this.model);
+      
 
       // Close the modal
       this.$('#add-recipe-modal').modal('toggle');
     },
+
     // Sets the model to the typed value
     inputChange: function(e) {
       // Gets the field the user is typing in
@@ -76,7 +77,6 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 
 
       // Sets values on the recipe model object
       this.model.set(this.formData, {validate: true});
-
     },
 
     render: function() {
