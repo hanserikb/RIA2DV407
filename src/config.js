@@ -19,6 +19,7 @@ require.config({
 
     // ### Models
     'recipeModel': 'models/recipe',
+    'ingredientModel': 'models/ingredient',
 
     // ### Collections
     'recipeCollection': 'collections/recipes',

@@ -8,12 +8,11 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 
     initialize: function(opts) {
       this.model = opts && opts.model || new RecipeModel();
       this.render();
+
       // Listen to model validation errors
       this.listenTo(this.model, 'invalid', this.checkErrors);
       this.listenTo(this.model, 'change', this.checkErrors);
 
-
-      console.log('this',  this)
       this.toggleModal();
 
     },
@@ -35,13 +34,10 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 
     checkErrors: function(model) {
       this.$('#errors').html('');
       if (model.isValid()) {
-        console.log(model)
         _.each(model.validationError, function(error) {
-          console.log(error)
-          // TODO: Render the messages in HTML
           this.$('#errors').append(error.message + '<br>');
-        }, this); 
-      }      
+        }, this);
+      }
     },
 
     events: {
@@ -77,6 +73,10 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 
 
       // Sets values on the recipe model object
       this.model.set(this.formData, {validate: true});
+    },
+
+    addIngredient: function() {
+      console.log('efter');
     },
 
     render: function() {
