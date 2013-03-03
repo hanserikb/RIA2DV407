@@ -186,12 +186,8 @@
         });
 
         it('should get the value from the input', function() {
-          expect(context.$).toHaveBeenCalledWith('#itemForm input');
+          expect(context.$).toHaveBeenCalledWith('#addIngredient input');
           expect($el.val).toHaveBeenCalled();
-        });
-
-        it('should check if the model is valid and create a model', function() {
-          expect(context.model.isValid).toHaveBeenCalled();
         });
 
       });

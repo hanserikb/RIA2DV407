@@ -1,14 +1,26 @@
-define(['backbone'], function(Backbone) {
+define(['backbone', 'ingredientModel'], function(Backbone, IngredientModel) {
     // Dish model
-    return Backbone.Model.extend({
-      defaults: {
-        name: '',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget neque enim. Phasellus rhoncus tempor vestibulum. Nam volutpat libero vel ipsum interdum aliquet. Duis suscipit pulvinar suscipit. Donec vitae tempus justo. Nunc adipiscing tempus diam, vitae pretium mi iaculis a. Cras sit amet nibh non magna malesuada venenatis.',
-        cookingTime: 'N/A',
-        author: 'N/A'
-      },
-      
-      validate: function(attrs) {
+  return Backbone.RelationalModel.extend({
+    relations: [{
+        type: Backbone.HasMany,
+        key: 'ingredients',
+        relatedModel: IngredientModel,
+        //collectionType: 'IngredientCollection',
+        reverseRelation: {
+          key: 'belongsTo'
+          //includeInJSON: 'id'
+    }
+  }],
+  defaults: {
+    name: '',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget neque enim. Phasellus rhoncus tempor vestibulum. Nam volutpat libero vel ipsum interdum aliquet. Duis suscipit pulvinar suscipit. Donec vitae tempus justo. Nunc adipiscing tempus diam, vitae pretium mi iaculis a. Cras sit amet nibh non magna malesuada venenatis.',
+    cookingTime: 'N/A',
+    author: 'N/A'
+  },
+  initialize: function() {
+    
+  },
+  validate: function(attrs) {
         // Array to hold errors
         var errors = [];
 

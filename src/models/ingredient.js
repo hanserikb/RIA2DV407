@@ -1,5 +1,6 @@
-define(['backbone', 'backbone-relational'], function(Backbone) {
-  return Backbone.RelationalModel.extend({
+define(['backbone','recipeModel', 'backbone-relational'], function(Backbone, RecipeModel) {
+  return  Backbone.RelationalModel.extend({
+    
     defaults: {
       name: "",
       amount: ""

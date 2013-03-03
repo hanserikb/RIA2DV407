@@ -76,7 +76,7 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 
     },
 
     addIngredient: function() {
-      console.log('efter');
+      var name = this.$('#addIngredient input').val()
     },
 
     render: function() {

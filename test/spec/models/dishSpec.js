@@ -5,7 +5,7 @@ define(['recipeModel'], function(RecipeModel) {
     // Create a new recipe for each test
     beforeEach(function() {
       recipe = new RecipeModel();
-    });
+    }); 
 
     // RecipeModel object should be defined
     it('should be defined', function() {

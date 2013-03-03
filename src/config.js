@@ -63,8 +63,7 @@ require.config({
       deps: ['jQ', 'pureBackbone', 'underscore'],
     },
     'backbone-relational': {
-      deps: ['underscore', 'pureBackbone'],
-      exports: 'Backbone'
+      deps: ['pureBackbone'],
     },
     'handlebars': {
       exports: 'Handlebars'
