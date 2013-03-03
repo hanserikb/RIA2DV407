@@ -3,7 +3,7 @@ define(['backbone','recipeModel', 'backbone-relational'], function(Backbone, Rec
     
     defaults: {
       name: "",
-      amount: ""
+      amount: "..."
     },
     validate: function(attrs) {
       var errors = [];

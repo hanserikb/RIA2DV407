@@ -7,7 +7,8 @@ define(['jQ', 'jasmine',
   '../test/spec/views/recipeList',
   '../test/spec/views/addRecipe',
   '../test/spec/views/showRecipe',
-  '../test/spec/models/ingredientSpec'], function($, jasmine) {
+  '../test/spec/models/ingredientSpec',
+  '../test/spec/views/ingredient'], function($, jasmine) {
   var jasmineEnv = jasmine.getEnv();
   jasmineEnv.updateInterval = 1000;
 

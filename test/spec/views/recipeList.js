@@ -9,6 +9,7 @@ define(['backbone', 'handlebars', 'recipeListView', 'recipeCollection', 'recipeM
   afterEach(function() {
     $('#content').remove();
     this.recipeList.remove();
+    this.dishCollection.reset();
     this.dishCollection.remove();
   });
 

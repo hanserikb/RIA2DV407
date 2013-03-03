@@ -13,7 +13,8 @@
         context = {
           listenTo: jasmine.createSpy('listenToSpy'),
           render: jasmine.createSpy('renderSpy'),
-          toggleModal: jasmine.createSpy('toggleModalSpy')
+          toggleModal: jasmine.createSpy('toggleModalSpy'),
+          on: jasmine.createSpy('onSpy')
         };
 
         // Call the method with the fake context
@@ -175,9 +176,9 @@
           $: jasmine.createSpy('jquerySpy').andReturn($el),
           model: {
             isValid: jasmine.createSpy('isValidSpy').andReturn(true)
-          }
+          },
+          renderIngredient: jasmine.createSpy('renderIngredientSpy')
         };
-
 
         addIngredient.call(context);
 
@@ -186,10 +187,60 @@
         });
 
         it('should get the value from the input', function() {
-          expect(context.$).toHaveBeenCalledWith('#addIngredient input');
+          expect(context.$).toHaveBeenCalledWith('#ingredient');
           expect($el.val).toHaveBeenCalled();
         });
 
+        it('should call the renderIngredient method ', function() {
+          expect(context.renderIngredient).toHaveBeenCalled();
+        });
+
       });
+
+    describe('the renderIngredients function', function() {
+      var renderIngredients = AddRecipeView.prototype.renderIngredients,
+        $el = {
+          html: jasmine.createSpy('htmlSpy')
+        },
+        context = {
+          $: jasmine.createSpy('jquerySpy').andReturn($el),
+          renderIngredient: jasmine.createSpy('renderIngredientSpy'),
+          renderIngredients: jasmine.createSpy('renderIngredientsSpy'),
+          model: {
+            get: jasmine.createSpy('ingredientGetSpy').andReturn([1, 2, 3]),
+            toJSON: jasmine.createSpy('toJsonSPy')
+          }
+        }
+
+        renderIngredients.call(context);
+
+        it('should call renderIngredient', function() {
+          expect(context.renderIngredient).toHaveBeenCalled();
+          expect(context.renderIngredient.callCount).toBe(3);
+        });
+    });
+
+    describe('the renderIngredient function', function() {
+
+      // Too messy testing. Commenting out
+      
+      /*var renderIngredient = AddRecipeView.prototype.renderIngredient,
+        $el = {
+          html: jasmine.createSpy('htmlSpy')
+        },
+        context = {
+          $: jasmine.createSpy('jquerySpy').andReturn($el),
+          renderIngredient: jasmine.createSpy('renderIngredientSpy'),
+          renderIngredients: jasmine.createSpy('renderIngredientsSpy'),
+        },
+        model = {
+            get: jasmine.createSpy('ingredientGetSpy').andReturn({name: "Test", amount: "2 dl"}),
+            toJSON: jasmine.createSpy('toJsonSPy')
+        }
+
+        renderIngredient.call(context, model);*/
+    });
+
+    
   });
 });

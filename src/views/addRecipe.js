@@ -1,4 +1,4 @@
-define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 'recipeModel'], function($, _, Backbone, Handlebars, AddRecipeTemplate, RecipeModel) {
+define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 'recipeModel', 'ingredientModel', 'ingredientView'], function($, _, Backbone, Handlebars, AddRecipeTemplate, RecipeModel, IngredientModel, IngredientView) {
   return Backbone.View.extend({
     template: Handlebars.compile(AddRecipeTemplate),
     formData: {},
@@ -13,6 +13,7 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 
       this.listenTo(this.model, 'invalid', this.checkErrors);
       this.listenTo(this.model, 'change', this.checkErrors);
 
+      this.on('ingredient:destroy', this.renderIngredients);
       this.toggleModal();
 
     },
@@ -46,7 +47,9 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 
       'keyup textarea': 'inputChange',
 
       // Submit form
-      'submit form': 'addRecipe'
+      'submit form': 'addRecipe',
+
+      'click #additem': 'addIngredient'
     },
 
     addRecipe: function(e) {
@@ -59,6 +62,17 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 
 
       // Close the modal
       this.$('#add-recipe-modal').modal('toggle');
+    },
+
+    renderIngredients: function() {
+      var that = this;
+      _.each(this.model.get('ingredients'), function(ingredient) {
+        that.renderIngredient(ingredient);
+      });
+    },
+
+    renderIngredient: function(model) {
+      this.$('.ingredients').append(new IngredientView({model: model}).render().$el);
     },
 
     // Sets the model to the typed value
@@ -75,8 +89,18 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 
       this.model.set(this.formData, {validate: true});
     },
 
-    addIngredient: function() {
-      var name = this.$('#addIngredient input').val()
+    addIngredient: function(e) {
+      //if(e.keyCode == 13) {
+        //e.preventDefault();
+        var name = this.$('#ingredient').val();
+
+        // Create a new model object and make a relation to the current recipe
+        var newIngredient = new IngredientModel({name: name, belongsTo: this.model});
+
+        console.log(newIngredient)
+        // Append it to the list
+        this.renderIngredient(newIngredient);
+     //  }
     },
 
     render: function() {
