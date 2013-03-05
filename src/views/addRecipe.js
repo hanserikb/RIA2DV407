@@ -84,7 +84,7 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 
       // Gets the model attribute name from the form input-field ID
       // (string-dependency == bad??)
       this.formData[field.attr('id')] = field.val();
-
+  
       // Sets values on the recipe model object
       this.model.set(this.formData, {validate: true});
     },

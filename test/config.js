@@ -1,14 +1,14 @@
 // Laddar in nödvändiga bilbiotek för att köra igång test
 define(['jQ', 'jasmine',
   'jasmine-html',
-  '../test/spec/models/dishSpec', 
-  '../test/spec/collections/dishCollectionSpec',
-  '../test/spec/views/dish',
-  '../test/spec/views/recipeList',
-  '../test/spec/views/addRecipe',
-  '../test/spec/views/showRecipe',
+  '../test/spec/models/recipeSpec', 
+  '../test/spec/collections/recipesSpec',
+  '../test/spec/views/recipeSpec',
+  '../test/spec/views/recipeListSpec',
+  '../test/spec/views/addRecipeSpec',
+  '../test/spec/views/showRecipeSpec',
   '../test/spec/models/ingredientSpec',
-  '../test/spec/views/ingredient'], function($, jasmine) {
+  '../test/spec/views/ingredientSpec'], function($, jasmine) {
   var jasmineEnv = jasmine.getEnv();
   jasmineEnv.updateInterval = 1000;
 
