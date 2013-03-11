@@ -20,15 +20,15 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 
 
     // Shows or hides the modal window
     toggleModal: function() {
-      var that = this;
-      setTimeout(function() {
-        that.$('#add-recipe-modal').modal('toggle').css({
+      _.bind(setTimeout(function() {
+        this.$('#add-recipe-modal').modal('toggle').css({
           width: 'auto',
           'margin-left': function () {
             return -($(this).width() / 2);
           }
         });
-      }, 0);
+      }, 0), this);
+      
     },
 
     // Render the errors and append them to a error-container
@@ -65,10 +65,9 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 
     },
 
     renderIngredients: function() {
-      var that = this;
       _.each(this.model.get('ingredients'), function(ingredient) {
         that.renderIngredient(ingredient);
-      });
+      }, this);
     },
 
     renderIngredient: function(model) {
@@ -84,7 +83,7 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 
       // Gets the model attribute name from the form input-field ID
       // (string-dependency == bad??)
       this.formData[field.attr('id')] = field.val();
-  
+      
       // Sets values on the recipe model object
       this.model.set(this.formData, {validate: true});
     },
@@ -101,11 +100,11 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 
         // Append it to the list
         this.renderIngredient(newIngredient);
      //  }
-    },
+   },
 
-    render: function() {
-      this.$el.html(this.template());
-      return this;
-    }
-  });
+   render: function() {
+    this.$el.html(this.template());
+    return this;
+  }
+});
 });
