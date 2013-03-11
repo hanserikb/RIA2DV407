@@ -1,4 +1,4 @@
-define(['jQ', 'underscore', 'backbone', 'handlebars'], function($, _, Backbone, Handlebars) {
+define(['jQ', 'backbone', 'handlebars'], function($, Backbone, Handlebars) {
   return Backbone.View.extend({
     // The ingredients is always shown in a list as separate list items
     tagName: 'li',

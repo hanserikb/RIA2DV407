@@ -1,4 +1,4 @@
-define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!recipeTemplate'], function($, _, Backbone, Handlebars, RecipeTemplate) {
+define(['jQ', 'backbone', 'handlebars', 'text!recipeTemplate'], function($, Backbone, Handlebars, RecipeTemplate) {
   return Backbone.View.extend({
     tagName: 'div',
     // Using handlebars to compile templates
@@ -25,6 +25,7 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!recipeTemplate'], fu
       return this;
     },
     deleteRecipe: function(e) {
+      console.log(e)
       e.preventDefault();
       this.model.destroy();
     }

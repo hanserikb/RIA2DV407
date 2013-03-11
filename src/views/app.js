@@ -1,11 +1,7 @@
-define(['jQ',
-  'backbone',
-  'underscore',
-  'recipeView',
-  'recipeModel',
+define(['jQ', 'backbone',
   'recipeListView',
   'recipeCollection',
-  'addRecipeView', 'modal'], function($, Backbone, _, RecipeView, RecipeModel, RecipeListView, RecipeCollection, AddRecipeView) {
+  'addRecipeView', 'modal'], function($, Backbone, RecipeListView, RecipeCollection, AddRecipeView) {
     var Appview = Backbone.View.extend({
       el: 'body',
 
@@ -22,16 +18,14 @@ define(['jQ',
       },
 
       showRecipe: function(id) {
-        console.log('showrecipe');
+        console.log('showrecipe: ' + id);
       },
 
       newAddRecipeView: function() {
         if (this.addRecipeView) {
-          console.log('den finns!');
           this.addRecipeView.model = null;
           this.addRecipeView.render().toggleModal();
         } else {
-          console.log('finns inte, skapar!');
           this.addRecipeView = new AddRecipeView({collection: this.recipeCollection});
           this.$el.append(this.addRecipeView.render().el);
         }
