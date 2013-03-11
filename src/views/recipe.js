@@ -14,7 +14,8 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!recipeTemplate'], fu
     events: {
       'click .showmore': function(e) {
         e.preventDefault();
-      }
+      },
+      'click .deleteRecipe': 'deleteRecipe'
     },
 
     // Renders a single dish into a div using the given model object
@@ -22,6 +23,11 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!recipeTemplate'], fu
     render: function() {
       this.$el.html(this.template(this.model.toJSON()));
       return this;
+    },
+    deleteRecipe: function(e) {
+      e.preventDefault();
+      this.model.destroy();
     }
+
   });
 });
