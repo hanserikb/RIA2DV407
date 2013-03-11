@@ -18,7 +18,7 @@ define(['jQ',
       },
 
       events: {
-        'click #add-recipe': "newAddRecipeView"
+        'click #add-recipe': 'newAddRecipeView'
       },
 
       showRecipe: function(id) {
@@ -26,8 +26,15 @@ define(['jQ',
       },
 
       newAddRecipeView: function() {
-        var addRecipeview = new AddRecipeView({collection: this.recipeCollection});
-        this.$el.append(addRecipeview.render().el);
+        if (this.addRecipeView) {
+          console.log('den finns!');
+          this.addRecipeView.model = null;
+          this.addRecipeView.render().toggleModal();
+        } else {
+          console.log('finns inte, skapar!');
+          this.addRecipeView = new AddRecipeView({collection: this.recipeCollection});
+          this.$el.append(this.addRecipeView.render().el);
+        }
       }
 
     });
