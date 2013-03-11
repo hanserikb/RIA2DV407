@@ -20,15 +20,18 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 
 
     // Shows or hides the modal window
     toggleModal: function() {
-      _.bind(setTimeout(function() {
+
+      var toggle = function() {
         this.$('#add-recipe-modal').modal('toggle').css({
           width: 'auto',
           'margin-left': function () {
             return -($(this).width() / 2);
           }
         });
-      }, 0), this);
-      
+      }
+
+      setTimeout(_.bind(toggle, this), 0);
+
     },
 
     // Render the errors and append them to a error-container
@@ -66,7 +69,7 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 
 
     renderIngredients: function() {
       _.each(this.model.get('ingredients'), function(ingredient) {
-        that.renderIngredient(ingredient);
+        this.renderIngredient(ingredient);
       }, this);
     },
 
@@ -83,7 +86,7 @@ define(['jQ', 'underscore', 'backbone', 'handlebars', 'text!addRecipeTemplate', 
       // Gets the model attribute name from the form input-field ID
       // (string-dependency == bad??)
       this.formData[field.attr('id')] = field.val();
-      
+
       // Sets values on the recipe model object
       this.model.set(this.formData, {validate: true});
     },
